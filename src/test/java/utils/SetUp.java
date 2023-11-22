@@ -43,6 +43,7 @@ public class SetUp {
                 ConstantData.chromeDriverPathWindows : ConstantData.chromeDriverPathLinux);
 
         ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.setCapability("browserVersion", "114.0.5735.90");
         chromeOptions.addArguments("--remote-allow-origins=*");
         chromeOptions.addArguments("--headless");
         chromeDriver = new ChromeDriver(chromeOptions);
