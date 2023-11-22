@@ -43,6 +43,8 @@ public class SetUp {
                 ConstantData.chromeDriverPathWindows : ConstantData.chromeDriverPathLinux);
 
         ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--remote-allow-origins=*");
+        chromeOptions.addArguments("--headless");
         chromeDriver = new ChromeDriver(chromeOptions);
     }
 
@@ -52,6 +54,7 @@ public class SetUp {
                 ConstantData.geckoDriverPathWindows : ConstantData.geckoDriverPathLinux);
 
         FirefoxOptions firefoxOptions = new FirefoxOptions();
+        firefoxOptions.addArguments("--headless");
         firefoxDriver = new FirefoxDriver(firefoxOptions);
     }
 
