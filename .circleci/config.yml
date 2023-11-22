@@ -20,7 +20,7 @@ jobs:
             sudo mv ~/bin/chromedriver /usr/local/bin/chromedriver
             sudo chmod +x /usr/local/bin/chromedriver
             chmod +x gradlew
-            chmod +x /home/circleci/project/src/test/resources/drivers/LICENSE.chromedriver
+            chmod +x /home/circleci/project/src/test/resources/drivers/chromedriver
             chmod +x /home/circleci/project/src/test/resources/drivers/geckodriver
       - run:
           name: Run Selenium Tests
