@@ -52,7 +52,7 @@ public class SetUp {
     private static void initializeFirefoxDriver() {
         String os = System.getProperty("os.name");
         System.setProperty("webdriver.gecko.driver", (os.contains("Windows")) ?
-                ConstantData.geckoDriverPathWindows : ConstantData.geckoDriverPathLinux);
+                ConstantData.geckoDriverPathWindows : "/usr/local/bin/geckodriver");
 
         FirefoxOptions firefoxOptions = new FirefoxOptions();
         firefoxOptions.addArguments("--headless");
