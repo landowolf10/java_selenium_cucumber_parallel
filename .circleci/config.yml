@@ -31,12 +31,17 @@ jobs:
             chmod +x gradlew
             chmod +x /home/circleci/project/src/test/resources/drivers/chromedriver
             chmod +x /home/circleci/project/src/test/resources/drivers/geckodriver
-            
-            cd /usr/local/bin
-            ls
       - run:
           name: Run Selenium Tests
           command: ./gradlew clean test --tests LoginRunner
+      - run:
+          name: Modify report CSS
+          command: |
+            sed -i 's#http://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@ff53917fbbdb5ef820abbbe4d199a6942dc771ff/v3html/css/extent.css#extent.css#g' /home/circleci/project/test-output/HtmlReport/ExtentHtml.html
+            sed -i 's#http://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@ff53917fbbdb5ef820abbbe4d199a6942dc771ff/v3html/js/extent.js#extent.js#g' /home/circleci/project/test-output/HtmlReport/ExtentHtml.html
+            cd /home/circleci/project/test-output/HtmlReport
+            cat ExtentHtml.html
+            ls
       - store_artifacts:
           path: test-output/HtmlReport
           destination: extent-reports
